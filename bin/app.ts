@@ -100,22 +100,22 @@ export class APIPipeline extends Stack {
     });
 
     const urlSecrets = sm.Secret.fromSecretAttributes(this, 'urlSecrets', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:gouda-service-api-xCINOs',
+      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:368582202472:secret:gouda-service-api-xCINOs',
     });
 
     const rfqWebhookConfig = sm.Secret.fromSecretAttributes(this, 'RfqConfig', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:rfq-webhook-config-sy04bH',
+      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:368582202472:secret:rfq-webhook-config-sy04bH',
     });
 
     const internalApiKey = sm.Secret.fromSecretAttributes(this, 'internal-api-key', {
       secretCompleteArn:
-        'arn:aws:secretsmanager:us-east-2:644039819003:secret:gouda-parameterization-api-internal-api-key-uw4sIa',
+        'arn:aws:secretsmanager:us-east-2:368582202472:secret:gouda-parameterization-api-internal-api-key-uw4sIa',
     });
 
     // Beta us-east-2
 
     const betaUsEast2Stage = new APIStage(this, 'beta-us-east-2', {
-      env: { account: '801328487475', region: 'us-east-2' },
+      env: { account: '368582202472', region: 'us-east-2' },
       provisionedConcurrency: 2,
       internalApiKey: internalApiKey.secretValue.toString(),
       stage: STAGE.BETA,
@@ -135,7 +135,7 @@ export class APIPipeline extends Stack {
 
     // Prod us-east-2
     const prodUsEast2Stage = new APIStage(this, 'prod-us-east-2', {
-      env: { account: '830217277613', region: 'us-east-2' },
+      env: { account: '368582202472', region: 'us-east-2' },
       provisionedConcurrency: 70,
       internalApiKey: internalApiKey.secretValue.toString(),
       chatbotSNSArn: 'arn:aws:sns:us-east-2:644039819003:SlackChatbotTopic',

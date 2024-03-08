@@ -17,9 +17,9 @@ export class FirehoseStack extends cdk.NestedStack {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    /* S3 Initialization */
+    /* S3 Initialization */s
     const analyticsEventsBucket = new aws_s3.Bucket(this, 'AnalyticsEventsBucket');
-    const bqLoadRole = aws_iam.Role.fromRoleArn(this, 'BqLoadRole', 'arn:aws:iam::867401673276:user/bq-load-sa');
+    const bqLoadRole = aws_iam.Role.fromRoleArn(this, 'BqLoadRole', 'arn:aws:iam::368582202472:user/bq-load-sa');
     analyticsEventsBucket.grantRead(bqLoadRole);
 
     /* Kinesis Firehose Initialization */

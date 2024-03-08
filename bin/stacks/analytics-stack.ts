@@ -71,7 +71,7 @@ export class AnalyticsStack extends cdk.NestedStack {
     const botOrderRouterBucket = new aws_s3.Bucket(this, 'BotOrderRouterBucket');
     const botOrderBroadcasterBucket = new aws_s3.Bucket(this, 'BotOrderBroadcasterBucket');
 
-    const dsRole = aws_iam.Role.fromRoleArn(this, 'DsRole', 'arn:aws:iam::867401673276:user/bq-load-sa');
+    const dsRole = aws_iam.Role.fromRoleArn(this, 'DsRole', 'arn:aws:iam::368582202472:user/bq-load-sa');
     rfqRequestBucket.grantRead(dsRole);
     rfqResponseBucket.grantRead(dsRole);
     unifiedRoutingRequestBucket.grantRead(dsRole);
